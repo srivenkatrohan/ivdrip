@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InstructionManual">
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="400dp"
+        android:layout_height="730dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:text="Welcome to the App. After the installation of the App, we recommend you to go through this Instruction Manual thoroughly so as to follow the further proceedings. Initially, you will have to attend the patient and perform the drip rate calculation by going to the Drip Rate Calculator button and entering the details of the volume of the liquid, the drop factor and the time limit in which the IV solution must be completed. After that, you'd receive the accurate drip rate of the fluid which drips per minute. Secondly, you'd be updated regarding the rate of speed at which the fluid flows through the Check Drip button. If the rate at which the drip flows is higher or lower than the actual speed or if the IV fluid is about to finish, you would be notified on the same, by which you will have to go to the patient and change the IV fluid by following the instructions of the Doctor. You can also make a note of the timings and the solutions which has been given to the patient by the Notepad facility provided in the App. In case of emergency, you can click on the Alarm button, which would alert other nurses or the doctors using this App. Consult the doctor for the further medications to be given to the patient."
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

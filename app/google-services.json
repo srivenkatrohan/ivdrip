@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "372077347069",
+    "firebase_url": "https://iv-drip-ac9c1.firebaseio.com",
+    "project_id": "iv-drip-ac9c1",
+    "storage_bucket": "iv-drip-ac9c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:372077347069:android:d2c5e5431e82950b7bbe94",
+        "android_client_info": {
+          "package_name": "com.example.ivdrip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "372077347069-148qo8ej5dkm3qn8lso0fclrmjv0q9gi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ivdrip",
+            "certificate_hash": "634bcc67cff31824361f7bf1ba2440927e6d7aa0"
+          }
+        },
+        {
+          "client_id": "372077347069-gb42ltel66qsngujt3lvv8060ar7s4g6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnPixrEinGT_cPoswci8C2nknwnWGGIvc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "372077347069-gb42ltel66qsngujt3lvv8060ar7s4g6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

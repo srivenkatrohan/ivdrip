@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUs">
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginRight="47dp"
+        android:text="App Name"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/ivDrip"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ivDrip"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:text="IV Drip"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/showNotifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="67dp"
+        android:layout_marginLeft="67dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="151dp"
+        android:layout_marginRight="151dp"
+        android:text="Show Notifications"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appName" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="67dp"
+        android:layout_marginLeft="67dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginRight="104dp"
+        android:text="Allow Notifications when using"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showNotifications" />
+
+    <TextView
+        android:id="@+id/fontSize"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="59dp"
+        android:layout_marginLeft="59dp"
+        android:layout_marginTop="14dp"
+        android:text="Font Size"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Small"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox2"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:text="Medium"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox3"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Large"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginRight="34dp"
+        android:text="App Language"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textView17"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginRight="101dp"
+        android:text="English"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="180dp"
+        tools:layout_editor_absoluteY="594dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14">
+
+        <RadioButton
+            android:id="@+id/mobileData"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Mobile Data"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Wi-Fi"
+            android:textColor="@android:color/background_dark"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
