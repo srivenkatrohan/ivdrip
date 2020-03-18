@@ -16,6 +16,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Iterator;
+
 public class MainActivity extends AppCompatActivity {
     private Button button;
     EditText username, password;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.uname);
         password = (EditText) findViewById(R.id.pwd);
         signUpMember=new SignUpMember();
+
         //reff=FirebaseDatabase.getInstance().getReference().child("Member");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,16 +43,23 @@ public class MainActivity extends AppCompatActivity {
                 //member.setPass(password.getText().toString());
                 //reff.push().setValue(member);
                 //Toast.makeText(MainActivity.this, "Data entered into the database", Toast.LENGTH_SHORT).show();
-                reff=FirebaseDatabase.getInstance().getReference().child("SignUpMember").child("1");
+                reff=FirebaseDatabase.getInstance().getReference().child("SignUpMember");
+                final String userText = username.getText().toString();
+                String passwordText = password.getText().toString();
                 reff.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                         user=dataSnapshot.child("user").getValue().toString();
-                         pass=dataSnapshot.child("pass").getValue().toString();
-                         username.setText(user);
-                         password.setText(pass);
-
-
+                        Iterator<DataSnapshot> items = dataSnapshot.getChildren().iterator();
+                        while(items.hasNext())
+                        {
+                            DataSnapshot ds = items.next();
+                            user = ds.child("user").getValue().toString();
+                            if(userText.equals(user))
+                            {
+                                pass = ds.child("pass").getValue().toString();
+                                break;
+                            }
+                        }
                     }
 
                     @Override
