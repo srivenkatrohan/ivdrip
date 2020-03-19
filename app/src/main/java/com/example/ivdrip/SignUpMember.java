@@ -11,6 +11,7 @@ public class SignUpMember {
     private String email;
     private String user;
     private String pass;
+    private String message = "";
     private boolean confirmation;
 
     public SignUpMember() {
@@ -102,5 +103,9 @@ public class SignUpMember {
 
     public void setConfirmation(boolean confirmation) {
         this.confirmation = confirmation;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

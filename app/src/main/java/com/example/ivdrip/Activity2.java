@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.File;
+
 public class Activity2 extends AppCompatActivity {
     private Button button;
 
@@ -80,6 +82,7 @@ public class Activity2 extends AppCompatActivity {
 
 
     public void openMainActivity() {
+        deleteFile("note.txt");
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

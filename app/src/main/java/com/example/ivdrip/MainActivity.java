@@ -2,8 +2,11 @@ package com.example.ivdrip;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,15 +18,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.core.Context;
 
 import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity {
     private Button button;
     EditText username, password;
-    String user,pass;
     DatabaseReference reff;
-    //Member member;
     SignUpMember signUpMember;
 
     @Override
@@ -33,31 +35,40 @@ public class MainActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.login);
         username = (EditText) findViewById(R.id.uname);
         password = (EditText) findViewById(R.id.pwd);
-        signUpMember=new SignUpMember();
+        signUpMember = new SignUpMember();
+        final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
 
-        //reff=FirebaseDatabase.getInstance().getReference().child("Member");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //member.setUser(username.getText().toString());
-                //member.setPass(password.getText().toString());
-                //reff.push().setValue(member);
-                //Toast.makeText(MainActivity.this, "Data entered into the database", Toast.LENGTH_SHORT).show();
-                reff=FirebaseDatabase.getInstance().getReference().child("SignUpMember");
+                reff = FirebaseDatabase.getInstance().getReference().child("SignUpMember");
                 final String userText = username.getText().toString();
-                String passwordText = password.getText().toString();
-                reff.addValueEventListener(new ValueEventListener() {
+                final String passwordText = password.getText().toString();
+                reff.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         Iterator<DataSnapshot> items = dataSnapshot.getChildren().iterator();
-                        while(items.hasNext())
-                        {
+                        SharedPreferences.Editor editor = sp.edit();
+                        int flag = 0;
+                        while (items.hasNext()) {
                             DataSnapshot ds = items.next();
-                            user = ds.child("user").getValue().toString();
-                            if(userText.equals(user))
-                            {
-                                pass = ds.child("pass").getValue().toString();
+                            String user = ds.child("user").getValue().toString();
+                            String pass = ds.child("pass").getValue().toString();
+                            if (userText.equals(user) && passwordText.equals(pass)) {
+                                editor.putString("id", ds.getKey());
+                                editor.commit();
+                                flag = 1;
+                                openActivity2();
                                 break;
+                            }
+                        }
+                        if ((username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) || (username.getText().toString().equals("user") && password.getText().toString().equals("user"))) {
+                            openActivity2();
+                        } else if (username.getText().toString().equals("") || password.getText().toString().equals("")) {
+                            Toast.makeText(MainActivity.this, "Enter the complete details!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            if (flag == 0) {
+                                Toast.makeText(MainActivity.this, "Incorrect Username/Password", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -67,18 +78,6 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
-
-               if((username.getText().toString().equals("admin")&&password.getText().toString().equals("admin"))||(username.getText().toString().equals("user")&&password.getText().toString().equals("user"))||(username.getText().toString().equals(user)&&password.getText().toString().equals(pass)))
-                {
-                    openActivity2();
-                }
-                else if(username.getText().toString().equals("")||password.getText().toString().equals("")) {
-                    Toast.makeText(MainActivity.this, "Enter the complete details!", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    Toast.makeText(MainActivity.this, "Incorrect Username/Password", Toast.LENGTH_SHORT).show();
-                }
             }
         });
 
@@ -92,14 +91,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-        public void openActivity2() {
-            Intent intent = new Intent(this, Activity2.class);
-            startActivity(intent);
-        }
+    public void openActivity2() {
+        Intent intent = new Intent(this, Activity2.class);
+        startActivity(intent);
+    }
 
     public void openSignUp() {
         Intent intent = new Intent(this, SignUp.class);
         startActivity(intent);
     }
-    }
+}
 

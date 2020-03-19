@@ -74,7 +74,6 @@ public class SignUp extends AppCompatActivity {
             signUpMember.setUser(username.getText().toString());
             signUpMember.setPass(password.getText().toString());
             signUpMember.setConfirmation(confirm.isChecked());
-            //reff.push().setValue(signUpMember);
             reff.child(String.valueOf(maxid+1)).setValue(signUpMember);
                 Toast.makeText(SignUp.this, "Signed Up successfully. Detailed entered into Database", Toast.LENGTH_SHORT).show();
                 openMainActivity();
